@@ -17,9 +17,13 @@ from django.contrib import admin
 from django.urls import path
 from brands.views import *
 from models.views import *
+from django.conf.urls.static import static
+from django.conf import settings
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', main),
-    path('brand/<int:id>/', brand_cars)
-]
+    path('brand/<int:id>/', brand_cars),
+    path('brand/<int:brand_id>/model/<int:model_id>/', series_models),
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

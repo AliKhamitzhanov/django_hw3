@@ -10,4 +10,4 @@ def main(request):
         'brands': brands,
     }
 
-    return render(request, 'main.html', context=data)
+    return render(request, 'all_brand.html', context=data)

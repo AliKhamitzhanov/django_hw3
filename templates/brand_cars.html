@@ -4,10 +4,11 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <style>
-        .post_bloke h1{
+        .post_bloke h1 {
             text-align: center;
             color: #f5dd5d;
         }
+
         .post_bloke h5 {
             text-align: center;
             color: #3875d7;
@@ -15,19 +16,167 @@
 
     </style>
 </head>
-<body >
-<div class="post_block">
-    <h1>{{ brand.name }}</h1>
-</div>
-<div class="comment">
-    {% for model in models %}
-        <div style="background-color: #fee415; text-align: center; height: 30vh; width: 60vh;">
-            <h3 style="color: purple">Модель машины: {{ model.name }}</h3>
-            <h5>Двигатель машины: {{ model.engine }}</h5>
-            <p>Лощадиная сила: {{ model.hp }}</p>
-            <p>Нютон момент: {{ model.nm }}</p>
-        </div>
-    {% endfor %}
-</div>
+<body>
+    <div class="post_block">
+        <h1>{{ brand.name }}</h1>
+    </div>
+    <div class="comment">
+        {% for model in models %}
+            <div class="card_cars-info">
+                <div class="card-info__inner">
+                    <div class="card__info-img">
+                        <img class="info__img" src="/media/{{ model.image }}" alt="">
+                    </div>
+                    <div class="card__info-tittle">
+                        <h3>Модель машины: {{ model.name }}</h3>
+                        <h4>Двигатель машины: {{ model.engine }}</h4>
+                        <p>Лощадиная сила: {{ model.hp }}</p>
+                        <p>Нютон момент: {{ model.nm }}</p>
+                        <div class="btn__car">
+                            <a href="model/{{ model.id }}">Series</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <style>
+
+                * {
+                    padding: 0;
+                    margin: 0;
+                }
+
+                body {
+                    background-color: #000;
+                }
+
+                .comment {
+                    width: 800px;
+                    margin: 0 auto;
+                    height: 100%;
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: space-between;
+                }
+
+                .card_cars-info {
+                    height: 100%;
+                    display: flex;
+                    justify-content: space-between;
+                    flex-wrap: wrap;
+                    margin: 0 auto;
+                    padding-top: 50px;
+                }
+
+                .card-info__inner {
+                    border: 1px solid grey;
+                    transition: .3s;
+                    width: 300px;
+                    height: 500px;
+                    background-color: cadetblue;
+                    margin: 0 auto;
+                }
+
+                .card-info__inner:hover {
+                    transform: scale(1.1);
+                }
+
+                .post_block {
+                    height: 80px;
+                    width: 100vw;
+                    background: rgb(0,0,0);
+                    background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(86,33,143,1) 50%, rgba(0,0,0,1) 100%);
+                    text-align: center;
+                    line-height: 80px;
+                }
+
+                .card__info-img {
+                    width: 100%;
+                    height: 200px;
+                }
+
+                .card__info-img img {
+                    width: 100%;
+                    height: 100%;
+                }
+
+                .card__info-tittle {
+                    padding-left: 25px;
+                    padding-right: 25px;
+                    border: 1px solid #7c7171;
+                    width: 200px;
+                    height: 281px;
+                    margin: 0 auto;
+                    background: rgb(0,139,130);
+                    background: radial-gradient(circle, rgba(0,139,130,1) 0%, rgba(0,0,0,1) 100%);
+                    animation: color 2s linear infinite;
+                    border-radius: 5px;
+                }
+
+                @keyframes color {
+                    0% {
+                        filter: hue-rotate(0deg);
+                    }
+                    100% {
+                        filter: hue-rotate(360deg);
+                    }
+                }
+
+                .card__info-tittle h3 {
+                    font-size: 20px;
+                    font-family: Cambria;
+                    color: #ffffff;
+                    padding-bottom: 10px;
+                }
+
+                .card__info-tittle h4 {
+                    font-size: 18px;
+                    font-family: Cambria;
+                    color: #ffffff;
+                    padding-bottom: 10px;
+                }
+
+                p {
+                    font-size: 18px;
+                    font-family: Cambria;
+                    color: #ffffff;
+                    padding-bottom: 10px;
+                }
+
+                .btn__car a {
+                    width: 90px;
+                    height: 50px;
+                    margin: 0 auto;
+                    background-color: cadetblue;
+                    border: none;
+                    color: white;
+                    font-size: 20px;
+                    border-radius: 7%;
+                    font-family: cursive;
+                    transition: .2s;
+                    text-align: center;
+                    line-height: 50px;
+                }
+
+                .btn__car {
+                    display: flex;
+                    justify-content: center;
+                    margin-top: 50px;
+                }
+
+                .btn__car button:hover {
+                    background-color: #47979a;
+                }
+
+                a {
+                    text-decoration: none;
+                    color: white;
+                }
+
+                a:hover {
+                    color: white;
+                }
+            </style>
+        {% endfor %}
+    </div>
 </body>
 </html>
