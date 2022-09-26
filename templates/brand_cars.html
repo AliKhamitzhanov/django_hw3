@@ -18,6 +18,9 @@
 </head>
 <body>
     <div class="post_block">
+        <div class="logo">
+            <img class="logo__item" src="/media/{{ brand.logo }}">
+        </div>
         <h1>{{ brand.name }}</h1>
     </div>
     <div class="comment">
@@ -58,6 +61,24 @@
                     justify-content: space-between;
                 }
 
+                .logo {
+                    font-weight: 700;
+                    font-size: 1.25vw;
+                    line-height: 2.92969vh;
+                    margin-right: 30vw;
+                }
+
+                .logo__item {
+                    height: 70px;
+                    width: 70px;
+                }
+
+                h1 {
+                    font-family: Cambria;
+                    color: #ff0000;                    margin-right: 30vw;
+                    margin-right: 35vw;
+                }
+
                 .card_cars-info {
                     height: 100%;
                     display: flex;
@@ -85,6 +106,8 @@
                     width: 100vw;
                     background: rgb(0,0,0);
                     background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(86,33,143,1) 50%, rgba(0,0,0,1) 100%);
+                    display: flex;
+                    justify-content: center;
                     text-align: center;
                     line-height: 80px;
                 }

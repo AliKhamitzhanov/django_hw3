@@ -17,6 +17,9 @@ class Model(models.Model):
 
 class Series(models.Model):
     name_series = models.CharField(max_length=40, unique=True)
+    engine_series = models.CharField(max_length=60)
+    hp_series = models.IntegerField(null=True)
+    nm_series = models.IntegerField(null=True)
     model = models.ForeignKey(Model, on_delete=models.CASCADE, null=False)
     image_series = models.ImageField(upload_to='model_series_img', null=True, blank=True)
 
